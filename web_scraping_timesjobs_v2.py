@@ -1,32 +1,32 @@
 #function to extract all the jobs listed in a single page
 def find_jobs_in_page(html_page):   #variable html_page cntains the html of a single page
 
-  #Creating BeautifulSoup instance with lxml parsing method
-  page_soup= BeautifulSoup(html_page, 'lxml') 
+    #Creating BeautifulSoup instance with lxml parsing method
+    page_soup= BeautifulSoup(html_page, 'lxml') 
 
-  #find all the 'li' html tags with 'clearfix job-bx wht-shd-bx' class
-  jobs= page_soup.find_all('li', class_="clearfix job-bx wht-shd-bx" )
+    #find all the 'li' html tags with 'clearfix job-bx wht-shd-bx' class
+    jobs= page_soup.find_all('li', class_="clearfix job-bx wht-shd-bx" )
 
-  return jobs
+    return jobs
 
 
 
 #function to extract job details of all the jobs in
 def find_job_detail(jobs):
 
-  #traversing through the html tree till we get the required information
-  #header-tag > h2-tag > a-tag
-  position= job.header.h2.a.text.strip()
+    #traversing through the html tree till we get the required information
+    #header-tag > h2-tag > a-tag
+    position= job.header.h2.a.text.strip()
 
-  #using tags and classes to we required information
-  company_name= job.find('h3', class_= "joblist-comp-name").text.strip()
-  skills= job.find('span', class_= "srp-skills").text.strip().replace("  , ",",")
-  published= job.find('span', class_= "sim-posted").text.strip()
-  more_info= job.header.h2.a['href']
+    #using tags and classes to we required information
+    company_name= job.find('h3', class_= "joblist-comp-name").text.strip()
+    skills= job.find('span', class_= "srp-skills").text.strip().replace("  , ",",")
+    published= job.find('span', class_= "sim-posted").text.strip()
+    more_info= job.header.h2.a['href']
 
-  #creating a dictionary which will be added as a row in our dataframe
-  job_detail_dictionary= {'Position': position, 'CompanyName': company_name, 'Skills': skills, 'Published': published, 'MoreInfo': more_info}
-  return job_detail_dictionary
+    #creating a dictionary which will be added as a row in our dataframe
+    job_detail_dictionary= {'Position': position, 'CompanyName': company_name, 'Skills': skills, 'Published': published, 'MoreInfo': more_info}
+    return job_detail_dictionary
 
 
 
