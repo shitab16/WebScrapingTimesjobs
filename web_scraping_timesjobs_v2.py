@@ -58,7 +58,7 @@ if __name__=="__main__":
 
 
 
-    #function to iterate through all the jobs and pages; and storing it in the dataframe
+    #iterate through all the jobs and pages; and storing it in the dataframe
     for page_number in range(1,number_of_pages+1):
 
           #formula to calculate the start page number
