@@ -1,3 +1,11 @@
+
+from bs4 import BeautifulSoup
+import requests
+import pandas as pd
+import lxml
+
+
+
 #function to extract all the jobs listed in a single page
 def find_jobs_in_page(html_page):   #variable html_page cntains the html of a single page
 
@@ -32,12 +40,6 @@ def find_job_detail(jobs):
 
 #--Start--
 if __name__=="__main__":
-
-    from bs4 import BeautifulSoup
-    import requests
-    import pandas as pd
-    import lxml
-
 
     df = pd.DataFrame(columns = ['Position', 'CompanyName', 'Skills', 'Published', 'MoreInfo'])
 
@@ -82,5 +84,3 @@ if __name__=="__main__":
 
 
     df.to_csv("job_dataset.csv", sep='\t')
-
-    df.head()
