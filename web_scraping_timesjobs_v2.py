@@ -29,6 +29,8 @@ def find_job_detail(jobs):
   return job_detail_dictionary
 
 
+
+#--Start--
 if __name__=="__main__":
 
     from bs4 import BeautifulSoup
