@@ -82,5 +82,6 @@ if __name__=="__main__":
                 #adding the job details to the dataframe
                 df= df.append(job_details, ignore_index=True)
 
-
+    
+    #storing the dataset in a .csv file 
     df.to_csv("job_dataset.csv", sep='\t')
